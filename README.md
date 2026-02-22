@@ -1,7 +1,7 @@
-# events
 
 
-## 🔔 Follow Us on LinkedIn – Stay Updated with Tech & Career Insights 🚀
+
+# 🔔 Follow Us on LinkedIn – Stay Updated with Tech & Career Insights 🚀
 
 📢 Want **regular updates on tech events, free hands-on sessions, career guidance, and industry insights**?
 
