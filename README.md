@@ -346,3 +346,33 @@ and ecosystems, not audiences.**
 🚀 *In a world of generic tech communities, CareerByteCode serves those who want depth, direction, and leadership impact.*
 
 </details>
+
+<details>
+<summary><strong>👥 Who are the Leaders of CareerByteCode (CBC)?</strong></summary>
+
+<br>
+
+CareerByteCode (CBC) is led by a group of **visionary technologists, educators, and community builders** who believe in **leadership-first learning and real-world execution**.
+
+---
+
+| Leader | Role |
+|------|------|
+| **[Siva Sankari](https://www.linkedin.com/in/learnwithsankari/)** | Co-Founder |
+| **[Sonali Kurade](https://www.linkedin.com/in/techopsbysonali/)** | Co-Founder |
+| **[Anitha](https://www.linkedin.com/in/anidigitalhub/)** | AI Educator & Community Co-Lead |
+
+---
+
+### 🌟 Leadership Philosophy
+
+The CBC leadership team focuses on:
+- 🧠 Building **future-ready tech leaders**
+- 🏗️ Promoting **real-world, production-grade engineering**
+- 🤝 Growing a **trusted, inclusive global tech community**
+- 🚀 Enabling **career acceleration through mentorship and visibility**
+
+> *Leadership at CareerByteCode is not about hierarchy —  
+it’s about **impact, guidance, and ecosystem growth**.*
+
+</details>
