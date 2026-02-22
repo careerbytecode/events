@@ -1,7 +1,27 @@
 # events
 
 
+## 🔔 Follow Us on LinkedIn – Stay Updated with Tech & Career Insights 🚀
 
+📢 Want **regular updates on tech events, free hands-on sessions, career guidance, and industry insights**?
+
+✨ Follow our official LinkedIn page to stay in sync with everything happening in the **Cloud, DevOps, Kubernetes, AI, and Career Growth** space.
+
+👉 **Follow our LinkedIn Page here:**  
+🔗 **[CareerByteCode on LinkedIn](https://www.linkedin.com/company/careerbytecode/)**
+
+---
+
+### 🌐 What You’ll Get by Following
+- 🚀 **Latest Tech Event Announcements**
+- 🧑‍💻 **Free Hands-On Workshop Updates**
+- ☁️ **Cloud • DevOps • Kubernetes • AI Insights**
+- 🎯 **Career Guidance & Interview Tips**
+- 📈 **Learning Roadmaps & Real-World Use Cases**
+
+⭐ *Follow the page and never miss an opportunity to learn, build, and grow in tech!*
+
+---
 
 
 ## 🔵 LinkedIn Events
@@ -62,6 +82,48 @@
 | 52 | NLP Project – Music Mood | [Link](https://www.linkedin.com/events/readingthemoodofmusic-nlp-apis-7405245954955677696/) | LinkedIn | 2025-12-14 | Kruthica, Swathi | Tech Hands-on Session | AI Mastering |
 | 53 | Azure DevOps for Newbies | [Link](https://www.linkedin.com/events/azuredevopsfornewbies-settingup7407922780429733906/) | LinkedIn | 2025-12-27 | Subbareddy Vundela | Tech Hands-on Session | Cloud DevOps |
 | 54 | IC to Leader Transition | [Link](https://www.linkedin.com/events/thetransitionfromindividualcont7410311190524076032/) | LinkedIn | 2025-12-29 | Sonali | Podcast | Leadership |
+
+
+
+
+---
+
+# 🎉 Join Our Meetup Community – Learn with FREE Hands-On Events 🚀
+
+💡 Looking to **upskill in Cloud, DevOps, Kubernetes, AI, and Career Growth**?
+
+✨ We host **FREE real-time, hands-on sessions**, live workshops, and expert-led discussions designed for **learners, professionals, and career switchers**.
+
+👉 **Join our Meetup Group here:**  
+🔗 **[CareerByteCode – AI, Cloud & Emerging Leaders](https://www.meetup.com/careerbytecode-ai-cloud-emerging-leaders/)**
+
+---
+
+### 🌟 What You’ll Get
+- 🧑‍💻 **Live Hands-On Labs** (Cloud, DevOps, Kubernetes, AI)
+- ☁️ **Real-World Project Demos**
+- 🎯 **Career Guidance & Mentorship**
+- 🤝 **Community Networking**
+- 💯 **100% Free Learning Sessions**
+
+📢 *Don’t miss out — learn, build, and grow together with the community!*
+
+---
+
+## 🟣 Meetup Events
+
+| Sl No | Event Name | Event Link | Platform | Date | Speaker Name | Type of Event | Domain |
+|-----:|------------|------------|----------|------|--------------|---------------|--------|
+| 1 | Secure the Cloud Backbone: Azure VNet Peering Across Regions | [Link](https://www.meetup.com/careerbytecode-ai-cloud-emerging-leaders/events/313342349/) | Meetup | 2026-02-21 | Arun Vaidhyanathan | Tech Hands-on Session | Cloud DevOps |
+| 2 | High Availability Made Easy with Azure Load Balancer | [Link](https://www.meetup.com/careerbytecode-ai-cloud-emerging-leaders/events/313063962/) | Meetup | 2026-01-31 | Arun Vaidhyanathan | Tech Hands-on Session | Cloud DevOps |
+| 3 | From Downtime to Resilience: Learn Azure Site Recovery Hands-On | [Link](https://www.meetup.com/careerbytecode-ai-cloud-emerging-leaders/events/312954100/) | Meetup | 2026-01-19 | Arun Vaidhyanathan | Tech Hands-on Session | Cloud DevOps |
+| 4 | Azure DevOps for Newbies: Setting Up Your First CI/CD Pipeline | [Link](https://www.meetup.com/careerbytecode-ai-cloud-emerging-leaders/events/312564781/) | Meetup | 2025-12-27 | Subbareddy Vundela | Tech Hands-on Session | Cloud DevOps |
+| 5 | AI + Security: Building Secure-by-Default Workflows for Modern Engineering | [Link](https://www.meetup.com/careerbytecode-ai-cloud-emerging-leaders/events/312263242/) | Meetup | 2025-12-19 | Siva Sankari | Tech Hands-on Session | AI / Security |
+| 6 | Reading the Mood of Music: NLP + APIs + Visualization in Action | [Link](https://www.meetup.com/careerbytecode-ai-cloud-emerging-leaders/events/312406681/) | Meetup | 2025-12-14 | Kruthica R, Swathi Priya | Tech Hands-on Session | AI Mastering |
+| 7 | Build a Cloud-Ready Dev Environment on Azure VM (Hands-On Session) | [Link](https://www.meetup.com/careerbytecode-ai-cloud-emerging-leaders/events/312315073/) | Meetup | 2026-01-10 | Arun Vaidhyanathan | Tech Hands-on Session | Cloud DevOps |
+| 8 | Build Your Own AI Agent for Email Summarization — LIVE Session | [Link](https://www.meetup.com/careerbytecode-ai-cloud-emerging-leaders/events/312315294/) | Meetup | 2025-12-07 | Dharshini Karthikeyan, Kruthica T | Tech Hands-on Session | AI Mastering |
+| 9 | DevOps Career Meetup: Real Stories, Real Guidance & Real Growth | [Link](https://www.meetup.com/careerbytecode-ai-cloud-emerging-leaders/events/313077402/) | Meetup | 2026-02-02 | Sonali | Podcast | Career Guidance |
+| 10 | Leadership Podcast | [Link](https://www.meetup.com/careerbytecode-ai-cloud-emerging-leaders/events/312572370/) | Meetup | 2025-12-29 | Sonali | Podcast | Leadership |
 | 55 | Cloud Dev Environment on Azure VM | [Link](https://www.linkedin.com/events/buildacloud-readydevenvironment7412423540987199488/) | LinkedIn | 2026-01-10 | Arun Vaidhyanathan | Tech Hands-on Session | Cloud DevOps |
 | 56 | Azure Site Recovery – Resilience | [Link](https://www.linkedin.com/events/fromdowntimetoresilience-learna7416936401310633985/) | LinkedIn | 2026-01-19 | Arun Vaidhyanathan | Tech Hands-on Session | Cloud DevOps |
 | 57 | DevOps Career Meetup | [Link](https://www.linkedin.com/events/devopscareermeetup-realstories-7421893116602994688/) | LinkedIn | 2026-02-02 | Sonali | Podcast | Cloud DevOps |
