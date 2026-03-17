@@ -18,10 +18,11 @@
 body{font-family:'Sora',sans-serif;background:var(--off-white);color:var(--text-dark);line-height:1.6;}
 
 /* HERO */
-.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 50%,#0f2d6e 100%);color:#fff;min-height:480px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 50%,#0f2d6e 100%);color:#fff;min-height:480px;display:flex;flex-direction:column;position:relative;}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(59,130,246,.18) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(6,182,212,.12) 0%,transparent 40%),radial-gradient(circle at 60% 80%,rgba(139,92,246,.10) 0%,transparent 40%);pointer-events:none;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.06) 1px,transparent 1px);background-size:40px 40px;}
 nav{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid rgba(255,255,255,.08);}
+.hamburger{display:none;}
 .logo{display:flex;align-items:center;gap:12px;}
 .logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--sky),var(--cyan));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:600;font-size:15px;color:#fff;box-shadow:0 4px 12px rgba(59,130,246,.4);}
 .logo-text{font-size:18px;font-weight:700;letter-spacing:-.3px;}
@@ -283,22 +284,256 @@ footer a{color:var(--cyan);text-decoration:none;}
 .hero h1{animation:fadeUp .6s .1s ease both;}
 .hero-tag{animation:fadeUp .6s .2s ease both;}
 .hero-cta{animation:fadeUp .6s .3s ease both;}
-@media(max-width:768px){
-  nav{padding:16px 20px;flex-direction:column;gap:12px;}
-  .hero-body{padding:40px 20px;}
-  .section,.events-section,.leaders-section{padding:48px 20px;}
-  .who-grid{grid-template-columns:1fr;gap:36px;}
-  .flow-steps{grid-template-columns:1fr;}
+/* ── TABLET ── */
+@media(max-width:900px){
+  .who-grid{grid-template-columns:1fr;gap:40px;}
+  .speaker-top{grid-template-columns:1fr;gap:32px;}
+  .leaders-grid{grid-template-columns:repeat(2,1fr);}
+  .flow-steps{grid-template-columns:1fr;gap:32px;}
   .flow-steps::before{display:none;}
-  .stats-bar{padding:20px;}
-  .stat-item{padding:8px 16px;border-right:none;border-bottom:1px solid var(--border);}
+}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+
+  /* NAV */
+  nav{padding:14px 16px;flex-wrap:wrap;gap:10px;justify-content:space-between;}
+  .logo-text{font-size:16px;}
+  .nav-links{display:none;}
+
+  /* HAMBURGER */
+  .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:transparent;}
+  .hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.8);border-radius:2px;transition:all .3s;}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
+  .mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy-mid);border-top:1px solid rgba(255,255,255,.08);padding:16px;z-index:100;flex-direction:column;gap:4px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;font-weight:600;padding:10px 14px;border-radius:8px;transition:all .2s;}
+  .mobile-menu a:hover{background:rgba(255,255,255,.1);color:#fff;}
+
+  /* HERO */
+  .hero{min-height:auto;}
+  .hero-body{padding:36px 16px 48px;}
+  .hero h1{font-size:1.9rem;letter-spacing:-1px;}
+  .hero-tag{font-size:14px;margin-bottom:28px;}
+  .hero-cta{flex-direction:column;align-items:center;gap:10px;}
+  .btn-primary,.btn-outline{width:100%;max-width:280px;text-align:center;justify-content:center;padding:12px 20px;font-size:13px;}
+
+  /* STATS */
+  .stats-bar{padding:0;flex-direction:row;flex-wrap:wrap;}
+  .stat-item{flex:1 1 45%;padding:16px 12px;border-right:none;border-bottom:1px solid var(--border);text-align:center;}
+  .stat-item:nth-child(odd){border-right:1px solid var(--border);}
   .stat-item:last-child{border-bottom:none;}
-  .upcoming-section{padding:48px 20px;}
-  .connect-section{padding:48px 20px;}
-  .speaker-inner{padding:0 20px;}
-  .speaker-top{grid-template-columns:1fr;gap:36px;}
-  .speaker-cta-banner{padding:28px 24px;flex-direction:column;align-items:flex-start;}
+  .stat-num{font-size:1.6rem;}
+
+  /* SECTIONS */
+  .section{padding:40px 16px;}
+  .events-section{padding:40px 16px;}
+  .leaders-section{padding:40px 16px;}
+  .section-header{margin-bottom:32px;}
+  .section-header h2{font-size:1.5rem;}
+
+  /* ABOUT CARDS */
+  .about-grid{grid-template-columns:1fr;gap:16px;}
+  .about-card{padding:22px 20px;}
+
+  /* WHO */
+  .who-section{padding:48px 0;}
+  .who-inner{padding:0 16px;}
+  .who-grid{grid-template-columns:1fr;gap:32px;}
+  .who-left h2{font-size:1.8rem;}
+  .who-right{grid-template-columns:1fr 1fr;gap:10px;}
+  .audience-chip{padding:12px;}
+
+  /* TECH */
+  .tech-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .tech-card{padding:18px 14px;}
+  .tech-icon{font-size:26px;}
+
+  /* FLOW */
+  .flow-section{padding:48px 0;}
+  .flow-inner{padding:0 16px;}
+  .flow-steps{grid-template-columns:1fr;gap:28px;}
+  .flow-steps::before{display:none;}
+  .step-num{width:60px;height:60px;font-size:22px;}
+
+  /* EVENTS TABS */
+  .events-tabs{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;padding-bottom:0;gap:4px;}
+  .events-tab{font-size:12px;padding:8px 14px;flex-shrink:0;}
+  .filter-bar{gap:6px;}
+  .filter-chip{font-size:11px;padding:4px 10px;}
+
+  /* TABLE — horizontal scroll */
+  .events-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  table{min-width:560px;}
+  th,td{padding:10px 12px;font-size:12px;}
+
+  /* UPCOMING */
+  .upcoming-section{padding:40px 16px;}
+  .upcoming-header{flex-direction:column;align-items:flex-start;gap:12px;}
+  .upcoming-header h2{font-size:1.5rem;}
+  .register-btn{width:100%;justify-content:center;font-size:13px;}
+  .upcoming-grid{grid-template-columns:1fr;gap:14px;}
+  .event-card{padding:18px 16px;}
+  .add-event-guide{padding:20px 16px;}
+  .code-block{font-size:11px;padding:14px 16px;}
+
+  /* LEADERS */
+  .leaders-grid{grid-template-columns:1fr;gap:16px;}
+  .leader-photo-wrap{height:220px;}
+
+  /* SPEAKER */
+  .speaker-section{padding:48px 0;}
+  .speaker-inner{padding:0 16px;}
+  .speaker-top{grid-template-columns:1fr;gap:28px;}
+  .speaker-left h2{font-size:1.7rem;}
+  .speaker-apply-btn{width:100%;justify-content:center;font-size:14px;padding:12px 20px;}
+  .speaker-benefits{padding:24px 18px;}
+  .speaker-cta-banner{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:18px;border-radius:14px;}
   .speaker-cta-banner::before{display:none;}
+  .speaker-cta-text h3{font-size:1.2rem;}
+  .speaker-cta-actions{flex-direction:column;width:100%;gap:10px;}
+  .spk-apply-big,.spk-share{width:100%;justify-content:center;padding:12px 20px;font-size:13px;}
+  .spk-domain{font-size:11px;padding:5px 10px;}
+
+  /* CONNECT */
+  .connect-section{padding:48px 16px;}
+  .connect-section h2{font-size:1.8rem;}
+  .connect-links{flex-direction:column;align-items:center;gap:10px;}
+  .connect-btn{width:100%;max-width:280px;justify-content:center;font-size:13px;}
+
+  /* FOOTER */
+  footer{padding:20px 16px;}
+}
+
+
+/* Category */
+.spk-category{margin-bottom:52px;}
+.spk-cat-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;}
+.spk-cat-pill{font-size:13px;font-weight:700;padding:7px 18px;border-radius:100px;border:1.5px solid;letter-spacing:.3px;}
+.spk-cat-count{font-size:12px;color:#94a3b8;font-weight:600;}
+
+/* Speaker grid */
+.spk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
+
+/* Speaker card */
+.spk-card{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border-radius:16px;border:1px solid #e2e8f0;padding:22px 16px 18px;text-decoration:none;color:inherit;transition:all .28s;position:relative;overflow:hidden;box-shadow:0 2px 12px rgba(10,22,40,.06);}
+.spk-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--spk-color);}
+.spk-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(10,22,40,.13);border-color:transparent;}
+
+/* Avatar */
+.spk-avatar{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;margin-bottom:14px;flex-shrink:0;font-family:'JetBrains Mono',monospace;box-shadow:0 4px 14px rgba(0,0,0,.15);}
+.spk-photo-wrap{width:72px;height:72px;border-radius:50%;overflow:hidden;margin-bottom:14px;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,.15);}
+.spk-photo{width:100%;height:100%;object-fit:cover;object-position:top center;}
+
+/* Card body */
+.spk-card-body{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;}
+.spk-event-badge{font-size:9.5px;font-weight:700;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;padding:3px 8px;border-radius:100px;margin-bottom:4px;border:1px solid #fcd34d;white-space:nowrap;}
+.spk-name{font-size:13.5px;font-weight:800;color:#0f172a;line-height:1.3;margin-bottom:2px;}
+.spk-role{font-size:11.5px;color:#64748b;font-weight:500;line-height:1.4;margin-bottom:8px;}
+.spk-domain-tag{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;border:1.5px solid;margin-bottom:10px;white-space:nowrap;}
+.spk-li-row{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;color:#3b82f6;padding:5px 12px;border-radius:7px;background:#eff6ff;border:1px solid #bfdbfe;transition:all .2s;}
+.spk-card:hover .spk-li-row{background:#3b82f6;color:#fff;border-color:#3b82f6;}
+
+/* Join banner */
+.spk-join-banner{background:linear-gradient(135deg,#0a1628 0%,#0d2147 60%,#1e3a8a 100%);border-radius:20px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:16px;}
+.spk-join-left{display:flex;align-items:center;gap:20px;}
+.spk-join-icon{font-size:40px;flex-shrink:0;}
+.spk-join-title{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:4px;}
+.spk-join-sub{font-size:13px;color:rgba(255,255,255,.65);line-height:1.5;max-width:480px;}
+.spk-join-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;padding:13px 28px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 6px 20px rgba(245,158,11,.4);transition:all .2s;flex-shrink:0;}
+.spk-join-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,158,11,.5);}
+
+/* Mobile */
+@media(max-width:768px){
+  .speakers-inner{padding:0 16px;}
+  .spk-stats-row{padding:16px 12px;gap:0;}
+  .spk-stat{padding:8px 16px;}
+  .spk-stat strong{font-size:1.4rem;}
+  .spk-stat-div{height:28px;}
+  .spk-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .spk-card{padding:18px 12px 14px;}
+  .spk-avatar,.spk-photo-wrap{width:58px;height:58px;font-size:18px;}
+  .spk-name{font-size:12.5px;}
+  .spk-join-banner{padding:24px 20px;flex-direction:column;border-radius:14px;}
+  .spk-join-btn{width:100%;justify-content:center;}
+}
+
+/* ═══════════════════════════════════ SPEAKERS SECTION ══ */
+.spk-section{padding:80px 0;background:#fff;border-top:1px solid #e2e8f0;}
+.spk-wrap{max-width:1200px;margin:0 auto;padding:0 48px;}
+.spk-h-accent{background:linear-gradient(135deg,#3b82f6,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* Meta row */
+.spk-meta-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;margin-top:28px;background:#f8faff;border:1px solid #e2e8f0;border-radius:14px;padding:20px 24px;}
+.spk-meta-item{text-align:center;padding:0 28px;}
+.spk-meta-item strong{display:block;font-size:1.75rem;font-weight:800;background:linear-gradient(135deg,#0a1628,#1e4fc2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+.spk-meta-item span{font-size:11px;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.5px;}
+.spk-meta-div{width:1px;height:38px;background:#e2e8f0;}
+
+/* Category */
+.spk-cat{margin-bottom:52px;}
+.spk-cat-head{display:flex;align-items:center;gap:14px;margin-bottom:22px;}
+.spk-cat-pill{font-size:13px;font-weight:700;padding:7px 18px;border-radius:100px;border:1.5px solid;}
+.spk-cat-count{font-size:12px;color:#94a3b8;font-weight:600;}
+
+/* Grid */
+.spk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:16px;}
+
+/* Card */
+.spk-card{display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;border-radius:18px;border:1px solid #e2e8f0;padding:24px 16px 18px;text-decoration:none;color:inherit;transition:all .28s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden;box-shadow:0 2px 10px rgba(10,22,40,.05);}
+.spk-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--spk-grad);}
+.spk-card::after{content:'';position:absolute;inset:0;background:var(--spk-light);opacity:0;transition:opacity .25s;}
+.spk-card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(10,22,40,.14);border-color:transparent;}
+.spk-card:hover::after{opacity:.25;}
+
+/* Avatar */
+.spk-av-init{width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;margin-bottom:14px;font-family:'JetBrains Mono',monospace;box-shadow:0 4px 16px rgba(0,0,0,.18);position:relative;z-index:1;flex-shrink:0;}
+.spk-av-wrap{width:74px;height:74px;position:relative;margin-bottom:14px;flex-shrink:0;z-index:1;}
+.spk-av-img{width:74px;height:74px;border-radius:50%;object-fit:cover;object-position:top center;display:block;box-shadow:0 4px 16px rgba(0,0,0,.18);}
+.spk-av-ring{position:absolute;inset:-3px;border-radius:50%;z-index:-1;opacity:.25;}
+
+/* Card body */
+.spk-card-body{display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;position:relative;z-index:1;}
+.spk-badges{margin-bottom:4px;}
+.spk-cofound-badge{display:inline-block;font-size:9.5px;font-weight:700;background:linear-gradient(135deg,#0a1628,#1e4fc2);color:#fff;padding:3px 9px;border-radius:100px;}
+.spk-ev-badge{display:inline-block;font-size:9.5px;font-weight:700;background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;padding:3px 9px;border-radius:100px;border:1px solid #fcd34d;}
+.spk-name{font-size:13.5px;font-weight:800;color:#0f172a;line-height:1.3;margin-bottom:2px;}
+.spk-role{font-size:11.5px;color:#64748b;font-weight:500;line-height:1.4;margin-bottom:8px;}
+.spk-dtag{font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;border:1.5px solid;margin-bottom:10px;white-space:nowrap;}
+.spk-li{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:#3b82f6;padding:5px 12px;border-radius:7px;background:#eff6ff;border:1px solid #bfdbfe;transition:all .2s;}
+.spk-card:hover .spk-li{background:#3b82f6;color:#fff;border-color:#3b82f6;}
+
+/* Footer banner */
+.spk-footer-banner{background:linear-gradient(135deg,#0a1628,#0d2147 60%,#1e3a8a);border-radius:20px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:8px;position:relative;overflow:hidden;}
+.spk-footer-banner::before{content:'🎙️';position:absolute;right:40px;top:50%;transform:translateY(-50%);font-size:90px;opacity:.06;pointer-events:none;}
+.spk-footer-left{display:flex;align-items:center;gap:20px;}
+.spk-footer-icon{font-size:42px;flex-shrink:0;}
+.spk-footer-title{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:4px;}
+.spk-footer-sub{font-size:13px;color:rgba(255,255,255,.6);line-height:1.5;max-width:460px;}
+.spk-footer-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;padding:13px 28px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 6px 20px rgba(245,158,11,.4);transition:all .2s;flex-shrink:0;}
+.spk-footer-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(245,158,11,.5);}
+
+/* Mobile */
+@media(max-width:900px){
+  .spk-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:768px){
+  .spk-wrap{padding:0 16px;}
+  .spk-section{padding:48px 0;}
+  .spk-meta-row{padding:14px 8px;}
+  .spk-meta-item{padding:6px 14px;}
+  .spk-meta-item strong{font-size:1.4rem;}
+  .spk-meta-div{height:28px;}
+  .spk-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .spk-card{padding:18px 10px 14px;}
+  .spk-av-init,.spk-av-wrap,.spk-av-img{width:58px;height:58px;font-size:18px;}
+  .spk-name{font-size:12px;}
+  .spk-role{font-size:11px;}
+  .spk-footer-banner{padding:24px 20px;border-radius:14px;flex-direction:column;}
+  .spk-footer-banner::before{display:none;}
+  .spk-footer-btn{width:100%;justify-content:center;}
 }
 </style>
 </head>
@@ -318,10 +553,24 @@ footer a{color:var(--cyan);text-decoration:none;}
       <a href="#upcoming">Upcoming</a>
       <a href="#events">All Events</a>
       <a href="#leaders">Leaders</a>
+      <a href="#speakers">Speakers</a>
       <a href="#speak">🎤 Speak</a>
       <a href="#connect">Connect</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#tech" class="mobile-link">Tech Stack</a>
+    <a href="#upcoming" class="mobile-link">📅 Upcoming Events</a>
+    <a href="#events" class="mobile-link">📋 All Events</a>
+    <a href="#leaders" class="mobile-link">👥 Leaders</a>
+    <a href="#speakers" class="mobile-link">🎙️ Speakers</a>
+    <a href="#speak" class="mobile-link">🎤 Speak with Us</a>
+    <a href="#connect" class="mobile-link">🔗 Connect</a>
+  </div>
   <div class="hero-body">
     <div class="hero-badge">🌍 Active across Europe &amp; India</div>
     <h1>A Global <span class="accent">Tech Leadership</span><br>& Community Ecosystem</h1>
@@ -717,6 +966,459 @@ footer a{color:var(--cyan);text-decoration:none;}
   </div>
 </section>
 
+
+
+
+<!-- SPEAKERS SECTION -->
+<section id="speakers" class="spk-section">
+  <div class="spk-wrap">
+
+    <div class="section-header">
+      <div class="section-tag">🎙️ Our Speakers &amp; Mentors</div>
+      <h2>Meet the Minds <span class="spk-h-accent">Behind the Sessions</span></h2>
+      <p>43 real engineers, architects, and leaders sharing expertise freely with the global CBC community.</p>
+      <div class="spk-meta-row">
+        <div class="spk-meta-item"><strong>43</strong><span>Total Speakers</span></div>
+        <div class="spk-meta-div"></div>
+        <div class="spk-meta-item"><strong>16</strong><span>Event Speakers</span></div>
+        <div class="spk-meta-div"></div>
+        <div class="spk-meta-item"><strong>4</strong><span>Tech Domains</span></div>
+        <div class="spk-meta-div"></div>
+        <div class="spk-meta-item"><strong>105+</strong><span>Countries Reached</span></div>
+      </div>
+    </div>
+
+    
+    <div class="spk-cat">
+      <div class="spk-cat-head">
+        <span class="spk-cat-pill" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">☁️ Cloud, DevOps & Platform</span>
+        <span class="spk-cat-count">14 speakers</span>
+      </div>
+      <div class="spk-grid"><a href="https://www.linkedin.com/in/learnwithsankari/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-wrap"><img src="data:image/jpeg;base64,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" alt="Siva Sankari" class="spk-av-img"><div class="spk-av-ring" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);"></div></div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-cofound-badge">🏛 Co-Founder</span></div>
+            <div class="spk-name">Siva Sankari</div>
+            <div class="spk-role">Co-Founder</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">Co-Founder</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/techopsbysonali/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-wrap"><img src="data:image/jpeg;base64,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" alt="Sonali Kurade" class="spk-av-img"><div class="spk-av-ring" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);"></div></div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-cofound-badge">🏛 Co-Founder</span></div>
+            <div class="spk-name">Sonali Kurade</div>
+            <div class="spk-role">Co-Founder & Sr DevOps Coach</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">DevOps Coach</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/arunvtechno/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">AV</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Arun Vaidyanathan</div>
+            <div class="spk-role">Cloud Migration</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">Cloud Migration</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/bavicnative/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">BM</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Bavithran M</div>
+            <div class="spk-role">Cloud Architect</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">Cloud Architect</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/geethascloud/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">GS</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Geetha S</div>
+            <div class="spk-role">Azure Mentor</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">Azure Mentor</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/manojwithdevopsai" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">MS</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Manoj Savukar</div>
+            <div class="spk-role">DevOps + AI</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">DevOps + AI</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/clouddevopswithpradnya/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">PD</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Pradnya Deshpande</div>
+            <div class="spk-role">Cloud Architect</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">Cloud Architect</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/architectraghu/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">RR</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Raghavendra Ramesh</div>
+            <div class="spk-role">CI/CD Specialist</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">Cloud / CI-CD</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/rakshitabelwal/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">RB</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Rakshita Belwal</div>
+            <div class="spk-role">AI Consultant</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">AI Consultant</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/cloudbyvenkat/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">SV</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Subbareddy Vundela</div>
+            <div class="spk-role">DevOps Architect</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">DevOps Architect</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/vjcloudops/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">VV</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Vijesh Vijayan</div>
+            <div class="spk-role">Reliability Eng</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">Reliability Eng</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/infantusgodfrey/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">IG</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Infantus Godfrey</div>
+            <div class="spk-role">Cloud DevOps</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">Cloud DevOps</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/riswanrajacloud/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">RR</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Riswan Raja A</div>
+            <div class="spk-role">CloudOps Engineer</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">CloudOps Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/learnwithshruthi/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#3b82f6,#06b6d4);--spk-light:#dbeafe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">SC</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Shruthi Chikkela</div>
+            <div class="spk-role">AIOps Architect</div>
+            <span class="spk-dtag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;">AIOps Architect</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a></div>
+    </div>
+    <div class="spk-cat">
+      <div class="spk-cat-head">
+        <span class="spk-cat-pill" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">🤖 AI, ML & Data Engineering</span>
+        <span class="spk-cat-count">20 speakers</span>
+      </div>
+      <div class="spk-grid"><a href="https://www.linkedin.com/in/anidigitalhub/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-wrap"><img src="data:image/jpeg;base64,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" alt="Anitha" class="spk-av-img"><div class="spk-av-ring" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);"></div></div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-cofound-badge">🏛 Co-Founder</span></div>
+            <div class="spk-name">Anitha</div>
+            <div class="spk-role">Co-Founder & AI Educator</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">Co-Founder & AI</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/askdharshiniai/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">DK</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Dharshini K</div>
+            <div class="spk-role">Data Mentor</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">Data / AI Mentor</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/gayuwithai/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">GP</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Gayathri P</div>
+            <div class="spk-role">AI Engineer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/kruthicawithai/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">KT</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Kruthica T</div>
+            <div class="spk-role">Python Trainer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">Python / AI Trainer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/swathi-priya-d-g-curious2upgrade/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">SP</div>
+          <div class="spk-card-body">
+            <div class="spk-badges"><span class="spk-ev-badge">⭐ Event Speaker</span></div>
+            <div class="spk-name">Swathipriya D.G</div>
+            <div class="spk-role">AI Engineer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/amrithajkumar/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">AJ</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Amritha J</div>
+            <div class="spk-role">AI Engineer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/archana-jnathan/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">AJ</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Archana J</div>
+            <div class="spk-role">AI Engineer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/bhavvya-yavanthika-64172332b/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">BY</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Bhavvya Y</div>
+            <div class="spk-role">AI Engineer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/charismawithai/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">CP</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Charisma D P</div>
+            <div class="spk-role">ML Practitioner</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">ML Practitioner</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/daisy-grace-thomas-38034b189/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">DT</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Daisy G Thomas</div>
+            <div class="spk-role">AI Engineer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/jenwithai/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">JR</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Jenefer R George</div>
+            <div class="spk-role">NLP Specialist</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">NLP Specialist</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/josmymathew/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">JM</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Josmy Mathew</div>
+            <div class="spk-role">AI Engineer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/jyoshika12/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">JR</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Jyoshika Reddy</div>
+            <div class="spk-role">AI Engineer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/kalaiselvi-kanagaraj-aa12a278/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">KK</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Kalaiselvi K</div>
+            <div class="spk-role">AI Engineer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/aiwithkiruthiga/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">KR</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Kiruthiga Ravi</div>
+            <div class="spk-role">AI Engineer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/iamlavanyar/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">LR</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Lavanya R</div>
+            <div class="spk-role">Data Scientist</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">Data Scientist</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/learnwithmona/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">MG</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Monisha G</div>
+            <div class="spk-role">AI Engineer</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Engineer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/reshmawithai/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">RS</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Reshma S</div>
+            <div class="spk-role">AI Mentor</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI / ML Mentor</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/tanisharajesh/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">TR</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Tanisha R A</div>
+            <div class="spk-role">AI Leader</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">AI Leader</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/llmwithteja/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#8b5cf6,#a78bfa);--spk-light:#ede9fe;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);">TM</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Tejaswini M</div>
+            <div class="spk-role">Data Educator</div>
+            <span class="spk-dtag" style="background:#f5f3ff;color:#5b21b6;border-color:#ddd6fe;">Data Educator</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a></div>
+    </div>
+    <div class="spk-cat">
+      <div class="spk-cat-head">
+        <span class="spk-cat-pill" style="background:#f0fdf4;color:#065f46;border-color:#a7f3d0;">💻 Full-Stack Development</span>
+        <span class="spk-cat-count">5 speakers</span>
+      </div>
+      <div class="spk-grid"><a href="https://www.linkedin.com/in/ankitsawdev" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#10b981,#34d399);--spk-light:#d1fae5;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#10b981,#34d399);">AS</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Ankit Saw</div>
+            <div class="spk-role">FullStack Dev</div>
+            <span class="spk-dtag" style="background:#f0fdf4;color:#065f46;border-color:#a7f3d0;">FullStack Dev</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/minithras/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#10b981,#34d399);--spk-light:#d1fae5;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#10b981,#34d399);">MS</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Minithra S</div>
+            <div class="spk-role">FullStack Dev</div>
+            <span class="spk-dtag" style="background:#f0fdf4;color:#065f46;border-color:#a7f3d0;">FullStack Dev</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/navixgr/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#10b981,#34d399);--spk-light:#d1fae5;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#10b981,#34d399);">NG</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Naveen G.R</div>
+            <div class="spk-role">FullStack Dev</div>
+            <span class="spk-dtag" style="background:#f0fdf4;color:#065f46;border-color:#a7f3d0;">FullStack Dev</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/pradeepafsd/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#10b981,#34d399);--spk-light:#d1fae5;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#10b981,#34d399);">PC</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Pradeepa C</div>
+            <div class="spk-role">FullStack Dev</div>
+            <span class="spk-dtag" style="background:#f0fdf4;color:#065f46;border-color:#a7f3d0;">FullStack Dev</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/sasikumarstyle/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#10b981,#34d399);--spk-light:#d1fae5;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#10b981,#34d399);">SS</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Sasikumar S</div>
+            <div class="spk-role">Sr FullStack Dev</div>
+            <span class="spk-dtag" style="background:#f0fdf4;color:#065f46;border-color:#a7f3d0;">Sr FullStack Dev</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a></div>
+    </div>
+    <div class="spk-cat">
+      <div class="spk-cat-head">
+        <span class="spk-cat-pill" style="background:#fffbeb;color:#92400e;border-color:#fde68a;">🏆 Speciality & Leadership</span>
+        <span class="spk-cat-count">4 speakers</span>
+      </div>
+      <div class="spk-grid"><a href="https://www.linkedin.com/in/dharmalingam-shanmugam-ba677b22/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#f59e0b,#fbbf24);--spk-light:#fef3c7;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">DS</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Dharmalingam S</div>
+            <div class="spk-role">iOS AI Developer</div>
+            <span class="spk-dtag" style="background:#fffbeb;color:#92400e;border-color:#fde68a;">iOS AI Developer</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/kl5gnexus/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#f43f5e,#fb7185);--spk-light:#ffe4e6;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#f43f5e,#fb7185);">KL</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Kapil Lakhanpal</div>
+            <div class="spk-role">CPO, Telecom</div>
+            <span class="spk-dtag" style="background:#fff1f2;color:#9d174d;border-color:#fecdd3;">CPO, Telecom</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/komalasalesforce/" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#f59e0b,#fbbf24);--spk-light:#fef3c7;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);">KO</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Komala</div>
+            <div class="spk-role">Salesforce Architect</div>
+            <span class="spk-dtag" style="background:#fffbeb;color:#92400e;border-color:#fde68a;">Salesforce Architect</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a><a href="https://www.linkedin.com/in/srinivas-t-413bba23" target="_blank" rel="noopener" class="spk-card" style="--spk-grad:linear-gradient(135deg,#f43f5e,#fb7185);--spk-light:#ffe4e6;">
+          <div class="spk-av-init" style="background:linear-gradient(135deg,#f43f5e,#fb7185);">ST</div>
+          <div class="spk-card-body">
+            
+            <div class="spk-name">Srinivas T</div>
+            <div class="spk-role">AI Telecom</div>
+            <span class="spk-dtag" style="background:#fff1f2;color:#9d174d;border-color:#fecdd3;">AI Telecom</span>
+            <div class="spk-li"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zM8 19H5V8h3v11zM6.5 6.73A1.77 1.77 0 1 1 6.5 3.2a1.77 1.77 0 0 1 0 3.53zM20 19h-3v-5.6c0-3.37-4-3.12-4 0V19h-3V8h3v1.77C14.4 7.36 20 7.2 20 12.3V19z"/></svg> LinkedIn</div>
+          </div>
+        </a></div>
+    </div>
+
+    <div class="spk-footer-banner">
+      <div class="spk-footer-left">
+        <div class="spk-footer-icon">🎤</div>
+        <div>
+          <div class="spk-footer-title">Want to Speak at CareerByteCode?</div>
+          <div class="spk-footer-sub">Join our growing speaker network and share your expertise with 242K+ learners across 105+ countries.</div>
+        </div>
+      </div>
+      <a href="https://lnkd.in/eKAYKNwe" target="_blank" class="spk-footer-btn">Apply to Speak &rarr;</a>
+    </div>
+
+  </div>
+</section>
+
 <!-- SPEAKER SECTION -->
 <section id="speak" class="speaker-section">
   <div class="speaker-inner">
@@ -931,6 +1633,19 @@ function filterEvents(filter,el){
 }
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{e.preventDefault();const el=document.querySelector(a.getAttribute('href'));if(el)el.scrollIntoView({behavior:'smooth',block:'start'});});
+});
+// Hamburger menu
+const hbtn = document.getElementById('hamburger');
+const mmenu = document.getElementById('mobile-menu');
+hbtn.addEventListener('click', () => {
+  hbtn.classList.toggle('open');
+  mmenu.classList.toggle('open');
+});
+document.querySelectorAll('.mobile-link').forEach(a => {
+  a.addEventListener('click', () => {
+    hbtn.classList.remove('open');
+    mmenu.classList.remove('open');
+  });
 });
 </script>
 </body>
